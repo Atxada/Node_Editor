@@ -1,17 +1,21 @@
-Welcome to PyQtNodeEditor
+Node Editor 
 ==========================
+Description
+-----------
+The initial goals of this project is to create an auto rig for maya, get a better understanding of Qt Framework, 
+and integrating custom GUI to Maya application.
 
-.. image:: https://badge.fury.io/py/nodeeditor.svg
-    :target: https://badge.fury.io/py/nodeeditor
+I planning to continue developing this project architecture by adding more function and features as i develop my knowledge.
+The main reason to create custom node editor is to visualize the rigging structure and promote reusability, so each
+nodes contains it's own data structure that can be deserialized or serialized whenever needed.
 
-.. image:: https://readthedocs.org/projects/pyqt-node-editor/badge/?version=latest
-    :target: https://pyqt-node-editor.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
+This project have been fun and stressful for me, but through it all I learned so many things, thanks to all the resources and
+people online that helped me when i'm stuck. As a gratitude, I want to share this project to anyone who interested.
 
+Also, Big thanks to Pavel Křupala for the node editor GUI tutorial he provided, it helps me a lot to start building
+my basic knowledge over Qt framework and many important things (event/callback, debugging process, documentation, etc).
 
-This package was created from the Node Editor written in PyQt5. The intention was to create a tutorial series
-describing the path to create a reusable nodeeditor which can be used in different projects.
-The tutorials are published on youtube for free. The full list of tutorials can be located here:
+The resource link below:
 https://www.blenderfreak.com/tutorials/node-editor-tutorial-series/
 
 Features
