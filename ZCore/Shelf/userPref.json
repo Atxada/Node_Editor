@@ -1,0 +1,14 @@
+{
+    "user_script": [
+        {
+            "shelf": "Tools", 
+            "icon": "C:/Users/atxad/Downloads/burger_donut.png", 
+            "command": "import maya.cmds as cmds\nimport maya.mel as mel\n\nsource_mesh = cmds.ls(sl=1)[0]\ntarget_mesh = cmds.ls(sl=1)[1:]\ncmds.select(clear=1)\n\n# Query Joint influence\nsource_mesh_influences = cmds.skinCluster(source_mesh, inf=1, q=1)\n\n# Bind target mesh to source's joint influence\nfor i in target_mesh:\n    for jnt in source_mesh_influences:\n        cmds.select(jnt, add=1)\n    cmds.select(i, add=1)\n    cmds.skinCluster(tsb=1)\n    cmds.select(clear=1)\n    \n    # Copy skin\n    cmds.select(source_mesh)\n    cmds.select(i,add=1)\n    mel.eval(\"copySkinWeights  -noMirror -surfaceAssociation closestPoint -influenceAssociation closestJoint -influenceAssociation name;\")\n    cmds.select(clear=1)\n\nprint (\"Success copy skin weight from {0} to {1} :D\".format(source_mesh,target_mesh)),"
+        }, 
+        {
+            "shelf": "Tools", 
+            "icon": "C:/Users/atxad/Pictures/2.jpg", 
+            "command": "print(\"hello world\")"
+        }
+    ]
+}

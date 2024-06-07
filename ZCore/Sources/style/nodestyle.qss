@@ -1,0 +1,46 @@
+/* QLabel { color: red; } */
+QGraphicsView { selection-background-color: #FFFFA637; } 
+
+NodeContentWidget {
+  background: transparent;
+}
+
+NodeContentWidget QTextEdit,
+NodeContentWidget QLineEdit {
+  background: #666;
+  color: #fff;
+}
+NodeContentWidget QLabel {
+  color: #e0e0e0;
+}
+NodeContentWidget QLabel#zeno_node_input,
+NodeContentWidget QLabel#zeno_node_output,
+NodeContentWidget QLabel#zeno_node_math {
+  background: transparent;
+  height: 0px;
+  color: #373737;
+  font-size: 72px;
+  max-height: 49px;
+  min-height: 49px;
+  padding-left: 94px;
+}
+NodeContentWidget QLabel#zeno_node_math,
+NodeContentWidget QLabel#zeno_node_spline {
+  padding-top: 12px;
+}
+NodeContentWidget QLabel#zeno_node_output {
+  min-width: 150px;
+  max-width: 150px;
+  min-height: 45px;
+  max-height: 45px;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 28px;
+}
+NodeContentWidget QLineEdit#zeno_node_input {
+  width: 140px;
+  height: 36px;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 28px;
+}

@@ -1,0 +1,80 @@
+{
+    "id": 2461696542144, 
+    "scene_width": 8000, 
+    "scene_height": 8000, 
+    "nodes": [
+        {
+            "id": 2461044689384, 
+            "title": "zSpline1", 
+            "pos_x": -438.43749999999994, 
+            "pos_y": 56.562500000000014, 
+            "inputs": [
+                {
+                    "id": 2461713368648, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }, 
+        {
+            "id": 1714429154752, 
+            "title": "zSpline1", 
+            "pos_x": -439.93749999999994, 
+            "pos_y": 195.68750000000003, 
+            "inputs": [
+                {
+                    "id": 1714447768136, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }, 
+        {
+            "id": 1714445105248, 
+            "title": "zSpline2", 
+            "pos_x": -94.75, 
+            "pos_y": 58.37500000000003, 
+            "inputs": [
+                {
+                    "id": 1714445894024, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }, 
+        {
+            "id": 1713769242128, 
+            "title": "zSpline3", 
+            "pos_x": -109.0625, 
+            "pos_y": 199.62500000000003, 
+            "inputs": [
+                {
+                    "id": 1714445896392, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }
+    ], 
+    "edges": []
+}

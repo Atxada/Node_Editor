@@ -1,0 +1,166 @@
+{
+    "id": 2150555730056, 
+    "scene_width": 8000, 
+    "scene_height": 8000, 
+    "nodes": [
+        {
+            "id": 2150590113928, 
+            "title": "Input", 
+            "pos_x": -494.0, 
+            "pos_y": -210.0, 
+            "inputs": [], 
+            "outputs": [
+                {
+                    "id": 2150590115528, 
+                    "index": 0, 
+                    "multi_edges": true, 
+                    "position": 5, 
+                    "socket_type": 1
+                }
+            ], 
+            "content": {}, 
+            "op_code": 1
+        }, 
+        {
+            "id": 2150555786504, 
+            "title": "Output", 
+            "pos_x": -173.0, 
+            "pos_y": -223.0, 
+            "inputs": [
+                {
+                    "id": 2150555784840, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 1
+                }
+            ], 
+            "outputs": [
+                {
+                    "id": 2150555785352, 
+                    "index": 0, 
+                    "multi_edges": true, 
+                    "position": 5, 
+                    "socket_type": 1
+                }
+            ], 
+            "content": {}, 
+            "op_code": 2
+        }, 
+        {
+            "id": 2150555843912, 
+            "title": "Math", 
+            "pos_x": -177.0, 
+            "pos_y": -324.0, 
+            "inputs": [
+                {
+                    "id": 2150555841480, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 1
+                }, 
+                {
+                    "id": 2150555842632, 
+                    "index": 1, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 1
+                }
+            ], 
+            "outputs": [
+                {
+                    "id": 2150555843592, 
+                    "index": 0, 
+                    "multi_edges": true, 
+                    "position": 5, 
+                    "socket_type": 1
+                }
+            ], 
+            "content": {}, 
+            "op_code": 3
+        }, 
+        {
+            "id": 1914766548496, 
+            "title": "ZSpline", 
+            "pos_x": -172.0, 
+            "pos_y": -44.0, 
+            "inputs": [
+                {
+                    "id": 1915452237768, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }, 
+        {
+            "id": 2150555828296, 
+            "title": "Output", 
+            "pos_x": -495.2, 
+            "pos_y": -88.2, 
+            "inputs": [
+                {
+                    "id": 2150555828616, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 1
+                }
+            ], 
+            "outputs": [
+                {
+                    "id": 2150555829256, 
+                    "index": 0, 
+                    "multi_edges": true, 
+                    "position": 5, 
+                    "socket_type": 1
+                }
+            ], 
+            "content": {}, 
+            "op_code": 2
+        }, 
+        {
+            "id": 2078837775608, 
+            "title": "zSpline1", 
+            "pos_x": -178.0, 
+            "pos_y": 77.0, 
+            "inputs": [
+                {
+                    "id": 2078855404744, 
+                    "index": 0, 
+                    "multi_edges": false, 
+                    "position": 2, 
+                    "socket_type": 2
+                }
+            ], 
+            "outputs": [], 
+            "content": {}, 
+            "op_code": 4
+        }
+    ], 
+    "edges": [
+        {
+            "id": 2078837748736, 
+            "edge_type": 2, 
+            "start": 2150555841480, 
+            "end": 2150590115528
+        }, 
+        {
+            "id": 2080126772952, 
+            "edge_type": 2, 
+            "start": 2150555842632, 
+            "end": 2150590115528
+        }, 
+        {
+            "id": 2078837793792, 
+            "edge_type": 2, 
+            "start": 2150555784840, 
+            "end": 2150555829256
+        }
+    ]
+}
