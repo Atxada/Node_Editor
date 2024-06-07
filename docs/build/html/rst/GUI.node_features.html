@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>node_features Module &mdash; NodeEditor 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="serializable Module" href="GUI.serializable.html" />
+    <link rel="prev" title="node_editor Module" href="GUI.node_editor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NodeEditor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../coding_standards.html">Coding standards</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="GUI.html">GUI Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_content.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_content</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_creator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_creator</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_editor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_editor</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_features</span></code> Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_features.CutLine"><code class="docutils literal notranslate"><span class="pre">CutLine</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.CutLine.boundingRect"><code class="docutils literal notranslate"><span class="pre">CutLine.boundingRect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.CutLine.shape"><code class="docutils literal notranslate"><span class="pre">CutLine.shape()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.CutLine.paint"><code class="docutils literal notranslate"><span class="pre">CutLine.paint()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_features.EdgeRerouting"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.print_debug"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.print_debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.getEdgeClass"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.getEdgeClass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.getAffectedEdges"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.getAffectedEdges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.setAffectedEdgesVisible"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.setAffectedEdgesVisible()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.resetRerouting"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.resetRerouting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.clearReroutingEdges"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.clearReroutingEdges()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.updateScenePos"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.updateScenePos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.startRerouting"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.startRerouting()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeRerouting.stopRerouting"><code class="docutils literal notranslate"><span class="pre">EdgeRerouting.stopRerouting()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_features.EdgeSnapping"><code class="docutils literal notranslate"><span class="pre">EdgeSnapping</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeSnapping.getSnappedSocketItem"><code class="docutils literal notranslate"><span class="pre">EdgeSnapping.getSnappedSocketItem()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_features.EdgeSnapping.getSnappedToSocketPosition"><code class="docutils literal notranslate"><span class="pre">EdgeSnapping.getSnappedToSocketPosition()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.serializable.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serializable</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NodeEditor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="GUI.html">GUI Package</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_features</span></code> Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rst/GUI.node_features.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-GUI.node_features">
+<span id="node-features-module"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_features</span></code> Module<a class="headerlink" href="#module-GUI.node_features" title="Permalink to this heading"></a></h1>
+<p>This module define all extended features of node editor</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_features.CutLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_features.</span></span><span class="sig-name descname"><span class="pre">CutLine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.CutLine" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QGraphicsItem</span></code></p>
+<p>Class representing Cutting Line used for cutting multiple <cite>Edges</cite> with one stroke</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> (<code class="docutils literal notranslate"><span class="pre">QWidget</span></code>) – parent widget</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.CutLine.boundingRect">
+<span class="sig-name descname"><span class="pre">boundingRect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.CutLine.boundingRect" title="Permalink to this definition"></a></dt>
+<dd><p>Defining Qt’ bounding rectangle</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.CutLine.shape">
+<span class="sig-name descname"><span class="pre">shape</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.CutLine.shape" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the QPainterPath object from list of line points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>shape function returning <code class="docutils literal notranslate"><span class="pre">QPainterPath</span></code> representation of Cutting Line</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">QPainterPath</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.CutLine.paint">
+<span class="sig-name descname"><span class="pre">paint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">painter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">option</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.CutLine.paint" title="Permalink to this definition"></a></dt>
+<dd><p>Paint the Cutting Line</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_features.</span></span><span class="sig-name descname"><span class="pre">EdgeRerouting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view_graphic</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.print_debug">
+<span class="sig-name descname"><span class="pre">print_debug</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.print_debug" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.getEdgeClass">
+<span class="sig-name descname"><span class="pre">getEdgeClass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.getEdgeClass" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.getAffectedEdges">
+<span class="sig-name descname"><span class="pre">getAffectedEdges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.getAffectedEdges" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.setAffectedEdgesVisible">
+<span class="sig-name descname"><span class="pre">setAffectedEdgesVisible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.setAffectedEdgesVisible" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.resetRerouting">
+<span class="sig-name descname"><span class="pre">resetRerouting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.resetRerouting" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.clearReroutingEdges">
+<span class="sig-name descname"><span class="pre">clearReroutingEdges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.clearReroutingEdges" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.updateScenePos">
+<span class="sig-name descname"><span class="pre">updateScenePos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.updateScenePos" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.startRerouting">
+<span class="sig-name descname"><span class="pre">startRerouting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.startRerouting" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeRerouting.stopRerouting">
+<span class="sig-name descname"><span class="pre">stopRerouting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeRerouting.stopRerouting" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeSnapping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_features.</span></span><span class="sig-name descname"><span class="pre">EdgeSnapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view_graphhic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snapping_radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeSnapping" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeSnapping.getSnappedSocketItem">
+<span class="sig-name descname"><span class="pre">getSnappedSocketItem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeSnapping.getSnappedSocketItem" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_features.EdgeSnapping.getSnappedToSocketPosition">
+<span class="sig-name descname"><span class="pre">getSnappedToSocketPosition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenepos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_features.EdgeSnapping.getSnappedToSocketPosition" title="Permalink to this definition"></a></dt>
+<dd><p>Returns socket_graphic and scene position to nearest socket or original position if no nearby socket found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scenepos</strong> (<code class="docutils literal notranslate"><span class="pre">QPointF</span></code>) – scene point to snap (target snap)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>socket_graphic and scene position to nearest socket</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GUI.node_editor.html" class="btn btn-neutral float-left" title="node_editor Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GUI.serializable.html" class="btn btn-neutral float-right" title="serializable Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Aldo Aldrich.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

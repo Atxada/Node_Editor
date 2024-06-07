@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>node_editor Module &mdash; NodeEditor 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="node_features Module" href="GUI.node_features.html" />
+    <link rel="prev" title="node_creator Module" href="GUI.node_creator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            NodeEditor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../coding_standards.html">Coding standards</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="GUI.html">GUI Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_content.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_content</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_creator.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_creator</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_editor</span></code> Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.InvalidFile"><code class="docutils literal notranslate"><span class="pre">InvalidFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.Scene"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.has_been_modified"><code class="docutils literal notranslate"><span class="pre">Scene.has_been_modified</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.initUI"><code class="docutils literal notranslate"><span class="pre">Scene.initUI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getNodeByID"><code class="docutils literal notranslate"><span class="pre">Scene.getNodeByID()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.setSilentSelectionEvents"><code class="docutils literal notranslate"><span class="pre">Scene.setSilentSelectionEvents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.onItemSelected"><code class="docutils literal notranslate"><span class="pre">Scene.onItemSelected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.onItemsDeselected"><code class="docutils literal notranslate"><span class="pre">Scene.onItemsDeselected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.isModified"><code class="docutils literal notranslate"><span class="pre">Scene.isModified()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getSelectedItems"><code class="docutils literal notranslate"><span class="pre">Scene.getSelectedItems()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.doDeselectItems"><code class="docutils literal notranslate"><span class="pre">Scene.doDeselectItems()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addHasBeenModifiedListener"><code class="docutils literal notranslate"><span class="pre">Scene.addHasBeenModifiedListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addItemSelectedListener"><code class="docutils literal notranslate"><span class="pre">Scene.addItemSelectedListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addItemDeselectedListener"><code class="docutils literal notranslate"><span class="pre">Scene.addItemDeselectedListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addDragEnterListener"><code class="docutils literal notranslate"><span class="pre">Scene.addDragEnterListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addDropListener"><code class="docutils literal notranslate"><span class="pre">Scene.addDropListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.resetLastSelectedStates"><code class="docutils literal notranslate"><span class="pre">Scene.resetLastSelectedStates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getView"><code class="docutils literal notranslate"><span class="pre">Scene.getView()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getItemAt"><code class="docutils literal notranslate"><span class="pre">Scene.getItemAt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addNode"><code class="docutils literal notranslate"><span class="pre">Scene.addNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.addEdge"><code class="docutils literal notranslate"><span class="pre">Scene.addEdge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.removeNode"><code class="docutils literal notranslate"><span class="pre">Scene.removeNode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.removeEdge"><code class="docutils literal notranslate"><span class="pre">Scene.removeEdge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.clear"><code class="docutils literal notranslate"><span class="pre">Scene.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.saveToFile"><code class="docutils literal notranslate"><span class="pre">Scene.saveToFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.loadFromFile"><code class="docutils literal notranslate"><span class="pre">Scene.loadFromFile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getEdgeClass"><code class="docutils literal notranslate"><span class="pre">Scene.getEdgeClass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.setNodeClassSelector"><code class="docutils literal notranslate"><span class="pre">Scene.setNodeClassSelector()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.getNodeClassFromData"><code class="docutils literal notranslate"><span class="pre">Scene.getNodeClassFromData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.serialize"><code class="docutils literal notranslate"><span class="pre">Scene.serialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.Scene.deserialize"><code class="docutils literal notranslate"><span class="pre">Scene.deserialize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.GraphicsScene"><code class="docutils literal notranslate"><span class="pre">GraphicsScene</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.itemSelected"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.itemSelected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.itemsDeselected"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.itemsDeselected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.dragMoveEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.dragMoveEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.setGraphicScene"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.setGraphicScene()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.drawBackground"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.drawBackground()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsScene.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">GraphicsScene.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.GraphicsView"><code class="docutils literal notranslate"><span class="pre">GraphicsView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.scenePosChanged"><code class="docutils literal notranslate"><span class="pre">GraphicsView.scenePosChanged</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.initUI"><code class="docutils literal notranslate"><span class="pre">GraphicsView.initUI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.mode"><code class="docutils literal notranslate"><span class="pre">GraphicsView.mode</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.isSnappingEnabled"><code class="docutils literal notranslate"><span class="pre">GraphicsView.isSnappingEnabled()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.resetMode"><code class="docutils literal notranslate"><span class="pre">GraphicsView.resetMode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.dragEnterEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.dragEnterEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.dropEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.dropEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.deleteEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.deleteEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.addDragEnterListener"><code class="docutils literal notranslate"><span class="pre">GraphicsView.addDragEnterListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.addDropListener"><code class="docutils literal notranslate"><span class="pre">GraphicsView.addDropListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.addDeleteListener"><code class="docutils literal notranslate"><span class="pre">GraphicsView.addDeleteListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.addStateListener"><code class="docutils literal notranslate"><span class="pre">GraphicsView.addStateListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.mousePressEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.mousePressEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.mouseReleaseEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.mouseReleaseEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.middleMouseButtonPressEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.middleMouseButtonPressEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.middleMouseButtonReleaseEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.middleMouseButtonReleaseEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.leftMouseButtonPressEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.leftMouseButtonPressEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.leftMouseButtonReleaseEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.leftMouseButtonReleaseEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.rightMouseButtonPressEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.rightMouseButtonPressEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.rightMouseButtonReleaseEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.rightMouseButtonReleaseEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.mouseMoveEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.mouseMoveEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.keyPressEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.keyPressEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.cutIntersectingEdge"><code class="docutils literal notranslate"><span class="pre">GraphicsView.cutIntersectingEdge()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.setSocketHighlights"><code class="docutils literal notranslate"><span class="pre">GraphicsView.setSocketHighlights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.deleteSelected"><code class="docutils literal notranslate"><span class="pre">GraphicsView.deleteSelected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.debug_modifiers"><code class="docutils literal notranslate"><span class="pre">GraphicsView.debug_modifiers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.getItemAtClick"><code class="docutils literal notranslate"><span class="pre">GraphicsView.getItemAtClick()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.wheelEvent"><code class="docutils literal notranslate"><span class="pre">GraphicsView.wheelEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.GraphicsView.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">GraphicsView.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.Scene_class"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.Scene_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.GraphicsView_class"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.GraphicsView_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.initUI"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.initUI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.isModified"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.isModified()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.isFilenameSet"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.isFilenameSet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.getSelectedItems"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.getSelectedItems()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.hasSelectedItems"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.hasSelectedItems()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.canUndo"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.canUndo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.canRedo"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.canRedo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.getUserFriendlyFilename"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.getUserFriendlyFilename()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.fileNew"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.fileNew()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.fileLoad"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.fileLoad()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.fileSave"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.fileSave()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.add_debug_content"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.add_debug_content()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">NodeEditorWidget.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.NodeEditorWidget_class"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.NodeEditorWidget_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.initUI"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.initUI()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.sizeHint"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.sizeHint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.createStatusBar"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.createStatusBar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.createActions"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.createActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.createMenus"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.createMenus()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.createFileMenu"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.createFileMenu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.createEditMenu"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.createEditMenu()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.setTitle"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.setTitle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.closeEvent"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.closeEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.isModified"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.isModified()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.getCurrentNodeEditorWidget"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.getCurrentNodeEditorWidget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.maybeSave"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.maybeSave()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onScenePosChanged"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onScenePosChanged()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.getFileDialogDirectory"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.getFileDialogDirectory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.getFileDialogFilter"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.getFileDialogFilter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onFileNew"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onFileNew()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onFileOpen"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onFileOpen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onFileSave"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onFileSave()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onFileSaveAs"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onFileSaveAs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditUndo"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditUndo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditRedo"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditRedo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditDelete"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditDelete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditCut"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditCut()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditCopy"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditCopy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.onEditPaste"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.onEditPaste()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.readSettings"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.readSettings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.writeSettings"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.writeSettings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.NodeEditorWindow.staticMetaObject"><code class="docutils literal notranslate"><span class="pre">NodeEditorWindow.staticMetaObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.SceneHistory"><code class="docutils literal notranslate"><span class="pre">SceneHistory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.clear"><code class="docutils literal notranslate"><span class="pre">SceneHistory.clear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.storeInitialHistoryStamp"><code class="docutils literal notranslate"><span class="pre">SceneHistory.storeInitialHistoryStamp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.addHistoryModifiedListener"><code class="docutils literal notranslate"><span class="pre">SceneHistory.addHistoryModifiedListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.addHistoryStoredListener"><code class="docutils literal notranslate"><span class="pre">SceneHistory.addHistoryStoredListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.addHistoryRestoredListener"><code class="docutils literal notranslate"><span class="pre">SceneHistory.addHistoryRestoredListener()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.canUndo"><code class="docutils literal notranslate"><span class="pre">SceneHistory.canUndo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.canRedo"><code class="docutils literal notranslate"><span class="pre">SceneHistory.canRedo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.undo"><code class="docutils literal notranslate"><span class="pre">SceneHistory.undo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.redo"><code class="docutils literal notranslate"><span class="pre">SceneHistory.redo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.restoreHistory"><code class="docutils literal notranslate"><span class="pre">SceneHistory.restoreHistory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.storeHistory"><code class="docutils literal notranslate"><span class="pre">SceneHistory.storeHistory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.captureCurrentSelection"><code class="docutils literal notranslate"><span class="pre">SceneHistory.captureCurrentSelection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.createHistoryStamp"><code class="docutils literal notranslate"><span class="pre">SceneHistory.createHistoryStamp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneHistory.restoreHistoryStamp"><code class="docutils literal notranslate"><span class="pre">SceneHistory.restoreHistoryStamp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#GUI.node_editor.SceneClipboard"><code class="docutils literal notranslate"><span class="pre">SceneClipboard</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneClipboard.serializeSelected"><code class="docutils literal notranslate"><span class="pre">SceneClipboard.serializeSelected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#GUI.node_editor.SceneClipboard.deserializeFromClipboard"><code class="docutils literal notranslate"><span class="pre">SceneClipboard.deserializeFromClipboard()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.node_features.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_features</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.serializable.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">serializable</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GUI.utils.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> Module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">NodeEditor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="GUI.html">GUI Package</a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_editor</span></code> Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/rst/GUI.node_editor.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-GUI.node_editor">
+<span id="node-editor-module"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">node_editor</span></code> Module<a class="headerlink" href="#module-GUI.node_editor" title="Permalink to this heading"></a></h1>
+<p>This module containing all window and widget class for node editor system (mouse event, history, clipboard).</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="GUI.node_editor.InvalidFile">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">InvalidFile</span></span><a class="headerlink" href="#GUI.node_editor.InvalidFile" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">Scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="GUI.serializable.html#GUI.serializable.Serializable" title="GUI.serializable.Serializable"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serializable</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing NodeEditor’s <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> - list of <cite>Nodes</cite> in this <cite>Scene</cite></p></li>
+<li><p><strong>edges</strong> - list of <cite>Edges</cite> in this <cite>Scene</cite></p></li>
+<li><p><strong>history</strong> - Instance of <a class="reference internal" href="#GUI.node_editor.SceneHistory" title="GUI.node_editor.SceneHistory"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneHistory</span></code></a></p></li>
+<li><p><strong>clipboard</strong> - Instance of <a class="reference internal" href="#GUI.node_editor.SceneClipboard" title="GUI.node_editor.SceneClipboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">SceneClipboard</span></code></a></p></li>
+<li><p><strong>scene_width</strong> - width of this <cite>Scene</cite> in pixels</p></li>
+<li><p><strong>scene_height</strong> - height of this <cite>Scene</cite> in pixels</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.has_been_modified">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_been_modified</span></span><a class="headerlink" href="#GUI.node_editor.Scene.has_been_modified" title="Permalink to this definition"></a></dt>
+<dd><p>Has this <cite>Scene</cite> been modified?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Getter<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <cite>Scene</cite> has been modified</p>
+</dd>
+<dt class="field-even">Setter<span class="colon">:</span></dt>
+<dd class="field-even"><p>set new state. Triggers <cite>Has Been Modified</cite> event</p>
+</dd>
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.initUI">
+<span class="sig-name descname"><span class="pre">initUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.initUI" title="Permalink to this definition"></a></dt>
+<dd><p>Set up Graphics Scene Instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getNodeByID">
+<span class="sig-name descname"><span class="pre">getNodeByID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getNodeByID" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function to find node in the scene according to previous <cite>node_id</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node_id</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) – ID of the node we are looking for</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Found <code class="docutils literal notranslate"><span class="pre">Node</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.setSilentSelectionEvents">
+<span class="sig-name descname"><span class="pre">setSilentSelectionEvents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.setSilentSelectionEvents" title="Permalink to this definition"></a></dt>
+<dd><p>Calling this can surpress onItemSelected events to be triggered. This is useful when working with clipboard</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.onItemSelected">
+<span class="sig-name descname"><span class="pre">onItemSelected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.onItemSelected" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Item selection and trigger event <cite>Item Selected</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>silent</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> scene’s onItemSelected won’t be called and history stamp not stored</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.onItemsDeselected">
+<span class="sig-name descname"><span class="pre">onItemsDeselected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.onItemsDeselected" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Items deselection and trigger event <cite>Items Deselected</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>silent</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> scene’s onItemsDeselected won’t be called and history stamp not stored</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.isModified">
+<span class="sig-name descname"><span class="pre">isModified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.isModified" title="Permalink to this definition"></a></dt>
+<dd><p>Is this <cite>Scene</cite> dirty or <cite>has been modified</cite> ?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <cite>Scene</cite> has been modified</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getSelectedItems">
+<span class="sig-name descname"><span class="pre">getSelectedItems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getSelectedItems" title="Permalink to this definition"></a></dt>
+<dd><p>Returns currently selected Graphics Items</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <code class="docutils literal notranslate"><span class="pre">QGraphicsItems</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[QGraphicsItem]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.doDeselectItems">
+<span class="sig-name descname"><span class="pre">doDeselectItems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.doDeselectItems" title="Permalink to this definition"></a></dt>
+<dd><p>Deselects everything in scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>silent</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code> scene’s onItemDeselected won’t be called</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addHasBeenModifiedListener">
+<span class="sig-name descname"><span class="pre">addHasBeenModifiedListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addHasBeenModifiedListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Has Been Modified</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addItemSelectedListener">
+<span class="sig-name descname"><span class="pre">addItemSelectedListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addItemSelectedListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Item Selected</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addItemDeselectedListener">
+<span class="sig-name descname"><span class="pre">addItemDeselectedListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addItemDeselectedListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Items Deselected</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addDragEnterListener">
+<span class="sig-name descname"><span class="pre">addDragEnterListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addDragEnterListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Drag Enter</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addDropListener">
+<span class="sig-name descname"><span class="pre">addDropListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addDropListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Drop</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.resetLastSelectedStates">
+<span class="sig-name descname"><span class="pre">resetLastSelectedStates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.resetLastSelectedStates" title="Permalink to this definition"></a></dt>
+<dd><p>Resets internal <cite>selected flags</cite> in all <cite>Nodes</cite> and <cite>Edges</cite> in the <cite>Scene</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getView">
+<span class="sig-name descname"><span class="pre">getView</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getView" title="Permalink to this definition"></a></dt>
+<dd><p>Shortcut for returning <cite>Scene</cite> <code class="docutils literal notranslate"><span class="pre">QGraphicsView</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">QGraphicsView</span></code> attached to the <cite>Scene</cite></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">QGraphicsView</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getItemAt">
+<span class="sig-name descname"><span class="pre">getItemAt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getItemAt" title="Permalink to this definition"></a></dt>
+<dd><p>Shortcut for retrieving item at provided <cite>Scene</cite> position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pos</strong> (<code class="docutils literal notranslate"><span class="pre">QPointF</span></code>) – scene position</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Qt Graphics Item at scene position</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">QGraphicsItem</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addNode">
+<span class="sig-name descname"><span class="pre">addNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addNode" title="Permalink to this definition"></a></dt>
+<dd><p>Add <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a> to this <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a>) – <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a> to be added to this <cite>Scene</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.addEdge">
+<span class="sig-name descname"><span class="pre">addEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.addEdge" title="Permalink to this definition"></a></dt>
+<dd><p>Add <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a> to this <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge</strong> – <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a> to be added to this <cite>Scene</cite></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.removeNode">
+<span class="sig-name descname"><span class="pre">removeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.removeNode" title="Permalink to this definition"></a></dt>
+<dd><p>Remove <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a> from this <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a>) – <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a> to be removed from this <cite>Scene</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.removeEdge">
+<span class="sig-name descname"><span class="pre">removeEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.removeEdge" title="Permalink to this definition"></a></dt>
+<dd><p>Remove <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a> from this <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>edge</strong> – <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a> to be remove from this <cite>Scene</cite></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.EdgeConfig" title="GUI.node_creator.EdgeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConfig</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Remove all <cite>Nodes</cite> from this <cite>Scene</cite>. This will also remove all related <cite>Edges</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.saveToFile">
+<span class="sig-name descname"><span class="pre">saveToFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.saveToFile" title="Permalink to this definition"></a></dt>
+<dd><p>Save this <cite>Scene</cite> to the file on disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – where to save this scene</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.loadFromFile">
+<span class="sig-name descname"><span class="pre">loadFromFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.loadFromFile" title="Permalink to this definition"></a></dt>
+<dd><p>Load <cite>Scene</cite> from a file on disk</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – from what file to load the <cite>Scene</cite></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#GUI.node_editor.InvalidFile" title="GUI.node_editor.InvalidFile"><code class="xref py py-class docutils literal notranslate"><span class="pre">InvalidFile</span></code></a> if there was an error decoding JSON file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getEdgeClass">
+<span class="sig-name descname"><span class="pre">getEdgeClass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getEdgeClass" title="Permalink to this definition"></a></dt>
+<dd><p>Return the class representing Edge. Override me with custom edge type class if needed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.setNodeClassSelector">
+<span class="sig-name descname"><span class="pre">setNodeClassSelector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">class_selecting_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.setNodeClassSelector" title="Permalink to this definition"></a></dt>
+<dd><p>Set the function which decides what <cite>Node</cite> class to instantiate when deserializing <cite>Scene</cite>.
+If not set, we will always instantiate <a class="reference internal" href="GUI.node_creator.html#GUI.node_creator.NodeConfig" title="GUI.node_creator.NodeConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeConfig</span></code></a> for each <cite>Node</cite> in the <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>class_selecting_function</strong> (<code class="docutils literal notranslate"><span class="pre">function</span></code>) – function which returns <cite>Node</cite> class type (not instance) from <cite>Node</cite> serialized <code class="docutils literal notranslate"><span class="pre">dict</span></code> data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Class Type of <cite>Node</cite> to be instantiated during deserialization</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Node</cite> class type</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.getNodeClassFromData">
+<span class="sig-name descname"><span class="pre">getNodeClassFromData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.getNodeClassFromData" title="Permalink to this definition"></a></dt>
+<dd><p>Takes <cite>Node</cite> serialized data and determines which <cite>Node Class</cite> to instantiate according the description
+in the serialized Node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – serialized <cite>Node</cite> object data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Instance of <cite>Node</cite> class to be used in this Scene</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>Node</cite> class instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.serialize" title="Permalink to this definition"></a></dt>
+<dd><p>Serialization method to serialize this class data into <code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code> which can be easily stored
+in memory or file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>data serialized in <code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.Scene.deserialize">
+<span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hashmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restore_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.Scene.deserialize" title="Permalink to this definition"></a></dt>
+<dd><p>Deserialization method which take data in python <code class="docutils literal notranslate"><span class="pre">dict</span></code> format with helping <cite>hashmap</cite> containing
+references to existing entities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – Dictionary containing serialized data</p></li>
+<li><p><strong>hashmap</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – Helper dictionary containing references (by id == key) to existing objects</p></li>
+<li><p><strong>restore_id</strong> (<em>bool</em>) – True if we are creating new Sockets. False is useful when loading existing
+Sockets of which we want to keep the existing object’s <cite>id</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if deserialization was successful, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">GraphicsScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsScene" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QGraphicsScene</span></code></p>
+<p>Class representing Graphic of <a class="reference internal" href="#GUI.node_editor.GraphicsScene" title="GUI.node_editor.GraphicsScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsScene</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scene</strong> (<a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>) – reference to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p></li>
+<li><p><strong>parent</strong> (<em>QWidget</em>) – parent widget</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.itemSelected">
+<span class="sig-name descname"><span class="pre">itemSelected</span></span><a class="headerlink" href="#GUI.node_editor.GraphicsScene.itemSelected" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.itemsDeselected">
+<span class="sig-name descname"><span class="pre">itemsDeselected</span></span><a class="headerlink" href="#GUI.node_editor.GraphicsScene.itemsDeselected" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.dragMoveEvent">
+<span class="sig-name descname"><span class="pre">dragMoveEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsScene.dragMoveEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Overriden Qt’s dragMoveEvent to enable Qt’s Drag Events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.setGraphicScene">
+<span class="sig-name descname"><span class="pre">setGraphicScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsScene.setGraphicScene" title="Permalink to this definition"></a></dt>
+<dd><p>Set <cite>width</cite> and <cite>height</cite> of the <cite>Graphics Scene</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.drawBackground">
+<span class="sig-name descname"><span class="pre">drawBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">painter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rect</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsScene.drawBackground" title="Permalink to this definition"></a></dt>
+<dd><p>Draw background scene grid</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsScene.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide2.QtCore.QMetaObject</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#GUI.node_editor.GraphicsScene.staticMetaObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">GraphicsView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene_graphic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QGraphicsView</span></code></p>
+<p>Class representing NodeEditor’s <cite>Graphics View</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scene_graphic</strong> (<a class="reference internal" href="#GUI.node_editor.GraphicsScene" title="GUI.node_editor.GraphicsScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsScene</span></code></a>) – reference to the <a class="reference internal" href="#GUI.node_editor.GraphicsScene" title="GUI.node_editor.GraphicsScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsScene</span></code></a></p></li>
+<li><p><strong>parent</strong> (<code class="docutils literal notranslate"><span class="pre">QWidget</span></code>) – parent widget</p></li>
+</ul>
+</dd>
+<dt class="field-even">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p><strong>scene_graphic</strong> - reference to the <a class="reference internal" href="#GUI.node_editor.GraphicsScene" title="GUI.node_editor.GraphicsScene"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsScene</span></code></a></p></li>
+<li><p><strong>mode</strong> - state of the <cite>Graphics View</cite></p></li>
+<li><p><strong>zoomInFactor</strong>- <code class="docutils literal notranslate"><span class="pre">float</span></code> - zoom step scaling, default 1.25</p></li>
+<li><p><strong>zoomClamp</strong> - <code class="docutils literal notranslate"><span class="pre">bool</span></code> - clamp zooming or limitless zooming</p></li>
+<li><p><strong>zoom</strong> - current zoom step</p></li>
+<li><p><strong>zoomStep</strong> - <code class="docutils literal notranslate"><span class="pre">int</span></code> - the relative zoom step when zooming in/out</p></li>
+<li><p><strong>zoomRange</strong> - <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code></p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.scenePosChanged">
+<span class="sig-name descname"><span class="pre">scenePosChanged</span></span><a class="headerlink" href="#GUI.node_editor.GraphicsView.scenePosChanged" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.initUI">
+<span class="sig-name descname"><span class="pre">initUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.initUI" title="Permalink to this definition"></a></dt>
+<dd><p>Set up this <code class="docutils literal notranslate"><span class="pre">QGraphicsView</span></code></p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.mode">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mode</span></span><a class="headerlink" href="#GUI.node_editor.GraphicsView.mode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.isSnappingEnabled">
+<span class="sig-name descname"><span class="pre">isSnappingEnabled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.isSnappingEnabled" title="Permalink to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if snapping is enabled</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.resetMode">
+<span class="sig-name descname"><span class="pre">resetMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.resetMode" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function to reset the graphic view state machine to the default</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.dragEnterEvent">
+<span class="sig-name descname"><span class="pre">dragEnterEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.dragEnterEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Trigger our registered <cite>Drag Enter</cite> events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.dropEvent">
+<span class="sig-name descname"><span class="pre">dropEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.dropEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Trigger our registered <cite>Drop</cite> events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.deleteEvent">
+<span class="sig-name descname"><span class="pre">deleteEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.deleteEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Trigger our registered <cite>Delete</cite> events</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.addDragEnterListener">
+<span class="sig-name descname"><span class="pre">addDragEnterListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.addDragEnterListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Drag Enter</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.addDropListener">
+<span class="sig-name descname"><span class="pre">addDropListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.addDropListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Drop</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.addDeleteListener">
+<span class="sig-name descname"><span class="pre">addDeleteListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.addDeleteListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Delete</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.addStateListener">
+<span class="sig-name descname"><span class="pre">addStateListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.addStateListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>Mode changed</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.mousePressEvent">
+<span class="sig-name descname"><span class="pre">mousePressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.mousePressEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch Qt’s mousePress event to corresponding function below</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.mouseReleaseEvent">
+<span class="sig-name descname"><span class="pre">mouseReleaseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.mouseReleaseEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Dispatch Qt’s mouseRelease event to corresponding function below</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.middleMouseButtonPressEvent">
+<span class="sig-name descname"><span class="pre">middleMouseButtonPressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.middleMouseButtonPressEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Middle mouse button was pressed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.middleMouseButtonReleaseEvent">
+<span class="sig-name descname"><span class="pre">middleMouseButtonReleaseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.middleMouseButtonReleaseEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Middle mouse button was released</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.leftMouseButtonPressEvent">
+<span class="sig-name descname"><span class="pre">leftMouseButtonPressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.leftMouseButtonPressEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Left  mouse button was pressed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.leftMouseButtonReleaseEvent">
+<span class="sig-name descname"><span class="pre">leftMouseButtonReleaseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.leftMouseButtonReleaseEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Left  mouse button was released</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.rightMouseButtonPressEvent">
+<span class="sig-name descname"><span class="pre">rightMouseButtonPressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.rightMouseButtonPressEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Right mouse button was pressed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.rightMouseButtonReleaseEvent">
+<span class="sig-name descname"><span class="pre">rightMouseButtonReleaseEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.rightMouseButtonReleaseEvent" title="Permalink to this definition"></a></dt>
+<dd><p>When Right mouse button was release</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.mouseMoveEvent">
+<span class="sig-name descname"><span class="pre">mouseMoveEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.mouseMoveEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Overriden Qt’s <code class="docutils literal notranslate"><span class="pre">mouseMoveEvent</span></code> handling Scene/View logic</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.keyPressEvent">
+<span class="sig-name descname"><span class="pre">keyPressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.keyPressEvent" title="Permalink to this definition"></a></dt>
+<dd><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This overridden Qt’s method was used for handling key shortcuts, before we implemented proper
+<code class="docutils literal notranslate"><span class="pre">QWindow</span></code> with Actions and Menu. Still the commented code serves as an example on how to handle
+key presses without Qt’s framework for Actions and shortcuts. There is also an example on
+how to solve the problem when a Node contains Text/LineEdit and we press the <cite>Delete</cite>
+key (also serving to delete <cite>Node</cite>)</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<code class="docutils literal notranslate"><span class="pre">QKeyEvent</span></code>) – Qt’s Key event</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.cutIntersectingEdge">
+<span class="sig-name descname"><span class="pre">cutIntersectingEdge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.cutIntersectingEdge" title="Permalink to this definition"></a></dt>
+<dd><p>Compare which <cite>Edges</cite> intersect with current <cite>Cut line</cite> and delete them safely</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.setSocketHighlights">
+<span class="sig-name descname"><span class="pre">setSocketHighlights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scenepos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">highlighted</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.setSocketHighlights" title="Permalink to this definition"></a></dt>
+<dd><p>set/disable socket highlights in scene area defined by <cite>scenepos</cite> and <a href="#id1"><span class="problematic" id="id2">`</span></a>radius</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.deleteSelected">
+<span class="sig-name descname"><span class="pre">deleteSelected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.deleteSelected" title="Permalink to this definition"></a></dt>
+<dd><p>Shortcut for safe deleting every object selected in the <cite>Scene</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.debug_modifiers">
+<span class="sig-name descname"><span class="pre">debug_modifiers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.debug_modifiers" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function get string if we hold Ctrl, Shift or Alt modifier keys</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.getItemAtClick">
+<span class="sig-name descname"><span class="pre">getItemAtClick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.getItemAtClick" title="Permalink to this definition"></a></dt>
+<dd><p>Return the object on which we’ve clicked/release mouse button</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<code class="docutils literal notranslate"><span class="pre">QEvent</span></code>) – Qt’s mouse or key event</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">QGraphicsItem</span></code> which the mouse event happened or <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.wheelEvent">
+<span class="sig-name descname"><span class="pre">wheelEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.GraphicsView.wheelEvent" title="Permalink to this definition"></a></dt>
+<dd><p>overridden Qt’s <code class="docutils literal notranslate"><span class="pre">wheelEvent</span></code>. This handles zooming</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.GraphicsView.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide2.QtCore.QMetaObject</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#GUI.node_editor.GraphicsView.staticMetaObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">NodeEditorWidget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code> class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>parent</strong> (<code class="docutils literal notranslate"><span class="pre">QWidget</span></code>) – parent widget</p>
+</dd>
+<dt class="field-even">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p><strong>filename</strong> - currently graph’s filename or <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.Scene_class">
+<span class="sig-name descname"><span class="pre">Scene_class</span></span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.Scene_class" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.GraphicsView_class">
+<span class="sig-name descname"><span class="pre">GraphicsView_class</span></span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.GraphicsView_class" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#GUI.node_editor.GraphicsView" title="GUI.node_editor.GraphicsView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsView</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.initUI">
+<span class="sig-name descname"><span class="pre">initUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.initUI" title="Permalink to this definition"></a></dt>
+<dd><p>Set up this <code class="docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code> with its layout,  <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a> and
+<a class="reference internal" href="#GUI.node_editor.GraphicsView" title="GUI.node_editor.GraphicsView"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphicsView</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.isModified">
+<span class="sig-name descname"><span class="pre">isModified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.isModified" title="Permalink to this definition"></a></dt>
+<dd><p>Has the <cite>Scene</cite> been modified?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the <cite>Scene</cite> has been modified</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.isFilenameSet">
+<span class="sig-name descname"><span class="pre">isFilenameSet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.isFilenameSet" title="Permalink to this definition"></a></dt>
+<dd><p>Do we have a graph loaded from file or are we creating a new one?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if filename is set. <code class="docutils literal notranslate"><span class="pre">False</span></code> if it is a new graph not yet saved to a file</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘’bool’’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.getSelectedItems">
+<span class="sig-name descname"><span class="pre">getSelectedItems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.getSelectedItems" title="Permalink to this definition"></a></dt>
+<dd><p>Shortcut returning <cite>Scene</cite>’s currently selected items</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <code class="docutils literal notranslate"><span class="pre">QGraphicsItems</span></code></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[QGraphicsItem]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.hasSelectedItems">
+<span class="sig-name descname"><span class="pre">hasSelectedItems</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.hasSelectedItems" title="Permalink to this definition"></a></dt>
+<dd><p>Is there something selected in the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if there is something selected in the <cite>Scene</cite></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.canUndo">
+<span class="sig-name descname"><span class="pre">canUndo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.canUndo" title="Permalink to this definition"></a></dt>
+<dd><p>Can Undo be performed right now?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if we can undo</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.canRedo">
+<span class="sig-name descname"><span class="pre">canRedo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.canRedo" title="Permalink to this definition"></a></dt>
+<dd><p>Can Redo be performed right now?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if we can redo</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.getUserFriendlyFilename">
+<span class="sig-name descname"><span class="pre">getUserFriendlyFilename</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.getUserFriendlyFilename" title="Permalink to this definition"></a></dt>
+<dd><p>Get user friendly filename (cut directory path). Used in the window title</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>just a base name of the file or <cite>‘New Graph’</cite></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.fileNew">
+<span class="sig-name descname"><span class="pre">fileNew</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.fileNew" title="Permalink to this definition"></a></dt>
+<dd><p>Empty the scene (create new file)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.fileLoad">
+<span class="sig-name descname"><span class="pre">fileLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.fileLoad" title="Permalink to this definition"></a></dt>
+<dd><p>Load serialized graph from JSON file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – file to load</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.fileSave">
+<span class="sig-name descname"><span class="pre">fileSave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.fileSave" title="Permalink to this definition"></a></dt>
+<dd><p>Save serialized graph to JSON file. When called with an empty parameter, we won’t store/remember the filename.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – file to store the graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.add_debug_content">
+<span class="sig-name descname"><span class="pre">add_debug_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.add_debug_content" title="Permalink to this definition"></a></dt>
+<dd><p>Testing method to put random QGraphicsItems and elements into QGraphicsScene</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWidget.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide2.QtCore.QMetaObject</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#GUI.node_editor.NodeEditorWidget.staticMetaObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">NodeEditorWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<p>Class representing NodeEditor’s Main Window</p>
+<dl class="field-list simple">
+<dt class="field-odd">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p><strong>name_company</strong> - name of the company, used for permanent profile settings</p></li>
+<li><p><strong>name_product</strong> - name of this App, used for permanent profile settings</p></li>
+</ul>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.NodeEditorWidget_class">
+<span class="sig-name descname"><span class="pre">NodeEditorWidget_class</span></span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.NodeEditorWidget_class" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#GUI.node_editor.NodeEditorWidget" title="GUI.node_editor.NodeEditorWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.initUI">
+<span class="sig-name descname"><span class="pre">initUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.initUI" title="Permalink to this definition"></a></dt>
+<dd><p>Set up this <code class="docutils literal notranslate"><span class="pre">QMainWindow</span></code>. Create <a class="reference internal" href="#GUI.node_editor.NodeEditorWidget" title="GUI.node_editor.NodeEditorWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a>, Actions and Menus</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.sizeHint">
+<span class="sig-name descname"><span class="pre">sizeHint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.sizeHint" title="Permalink to this definition"></a></dt>
+<dd><p>Override function, suggest Qt widget using specific qsize below</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.createStatusBar">
+<span class="sig-name descname"><span class="pre">createStatusBar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.createStatusBar" title="Permalink to this definition"></a></dt>
+<dd><p>Create Status bar and connect to <cite>Graphics View</cite> scenePosChanged event</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.createActions">
+<span class="sig-name descname"><span class="pre">createActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.createActions" title="Permalink to this definition"></a></dt>
+<dd><p>Create basic <cite>File</cite> and <cite>Edit</cite> actions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.createMenus">
+<span class="sig-name descname"><span class="pre">createMenus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.createMenus" title="Permalink to this definition"></a></dt>
+<dd><p>Create Menus for <cite>File</cite> and <cite>Edit</cite></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.createFileMenu">
+<span class="sig-name descname"><span class="pre">createFileMenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.createFileMenu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.createEditMenu">
+<span class="sig-name descname"><span class="pre">createEditMenu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.createEditMenu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.setTitle">
+<span class="sig-name descname"><span class="pre">setTitle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.setTitle" title="Permalink to this definition"></a></dt>
+<dd><p>Function responsible for setting window title</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.closeEvent">
+<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.closeEvent" title="Permalink to this definition"></a></dt>
+<dd><p>Handle close event. Ask before we loose work</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.isModified">
+<span class="sig-name descname"><span class="pre">isModified</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.isModified" title="Permalink to this definition"></a></dt>
+<dd><p>Has current <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a> been modified?</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if current <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a> has been modified</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.getCurrentNodeEditorWidget">
+<span class="sig-name descname"><span class="pre">getCurrentNodeEditorWidget</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.getCurrentNodeEditorWidget" title="Permalink to this definition"></a></dt>
+<dd><p>get current <a class="reference internal" href="#GUI.node_editor.NodeEditorWidget" title="GUI.node_editor.NodeEditorWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>get current <a class="reference internal" href="#GUI.node_editor.NodeEditorWidget" title="GUI.node_editor.NodeEditorWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a></p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#GUI.node_editor.NodeEditorWidget" title="GUI.node_editor.NodeEditorWidget"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeEditorWidget</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.maybeSave">
+<span class="sig-name descname"><span class="pre">maybeSave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.maybeSave" title="Permalink to this definition"></a></dt>
+<dd><p>If current <cite>Scene</cite> is modified, ask a dialog to save the changes. Used before
+closing window / mdi child document</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if we can continue in the <cite>Close Event</cite> and shutdown. <code class="docutils literal notranslate"><span class="pre">False</span></code> if we should cancel</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onScenePosChanged">
+<span class="sig-name descname"><span class="pre">onScenePosChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onScenePosChanged" title="Permalink to this definition"></a></dt>
+<dd><p>Handle event when cursor position changed on the <cite>Scene</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – new cursor x position</p></li>
+<li><p><strong>y</strong> – new cursor y position</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.getFileDialogDirectory">
+<span class="sig-name descname"><span class="pre">getFileDialogDirectory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.getFileDialogDirectory" title="Permalink to this definition"></a></dt>
+<dd><p>Returns starting directory for <code class="docutils literal notranslate"><span class="pre">QFileDialog</span></code> file open/save</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.getFileDialogFilter">
+<span class="sig-name descname"><span class="pre">getFileDialogFilter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.getFileDialogFilter" title="Permalink to this definition"></a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">str</span></code> standard file open/save filter for <code class="docutils literal notranslate"><span class="pre">QFileDialog</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onFileNew">
+<span class="sig-name descname"><span class="pre">onFileNew</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onFileNew" title="Permalink to this definition"></a></dt>
+<dd><p>Hande File New operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onFileOpen">
+<span class="sig-name descname"><span class="pre">onFileOpen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onFileOpen" title="Permalink to this definition"></a></dt>
+<dd><p>Handle File Open operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onFileSave">
+<span class="sig-name descname"><span class="pre">onFileSave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onFileSave" title="Permalink to this definition"></a></dt>
+<dd><p>Handle File Save operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onFileSaveAs">
+<span class="sig-name descname"><span class="pre">onFileSaveAs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onFileSaveAs" title="Permalink to this definition"></a></dt>
+<dd><p>Handle File Save As operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditUndo">
+<span class="sig-name descname"><span class="pre">onEditUndo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditUndo" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Edit Undo operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditRedo">
+<span class="sig-name descname"><span class="pre">onEditRedo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditRedo" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Edit Redo operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditDelete">
+<span class="sig-name descname"><span class="pre">onEditDelete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditDelete" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Delete Selected operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditCut">
+<span class="sig-name descname"><span class="pre">onEditCut</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditCut" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Edit Cut to clipboard operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditCopy">
+<span class="sig-name descname"><span class="pre">onEditCopy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditCopy" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Edit Copy to clipboard operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.onEditPaste">
+<span class="sig-name descname"><span class="pre">onEditPaste</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.onEditPaste" title="Permalink to this definition"></a></dt>
+<dd><p>Handle Edit Paste from clipboard operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.readSettings">
+<span class="sig-name descname"><span class="pre">readSettings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.readSettings" title="Permalink to this definition"></a></dt>
+<dd><p>Read the permanent profile settings for this app</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.writeSettings">
+<span class="sig-name descname"><span class="pre">writeSettings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.writeSettings" title="Permalink to this definition"></a></dt>
+<dd><p>Write the permanent profile settings for this app</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="GUI.node_editor.NodeEditorWindow.staticMetaObject">
+<span class="sig-name descname"><span class="pre">staticMetaObject</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;PySide2.QtCore.QMetaObject</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#GUI.node_editor.NodeEditorWindow.staticMetaObject" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">SceneHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class contains all the code for undo/redo operations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scene</strong> (<a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>) – Reference to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd>
+<dt class="field-even">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p><strong>scene</strong> - reference to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p></li>
+<li><p><strong>history_limit</strong> - number of history steps that can be stored</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.clear" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the history stack</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.storeInitialHistoryStamp">
+<span class="sig-name descname"><span class="pre">storeInitialHistoryStamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.storeInitialHistoryStamp" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function usually used when new or open file requested</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.addHistoryModifiedListener">
+<span class="sig-name descname"><span class="pre">addHistoryModifiedListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.addHistoryModifiedListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>HistoryModified</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.addHistoryStoredListener">
+<span class="sig-name descname"><span class="pre">addHistoryStoredListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.addHistoryStoredListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>HistoryStored</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.addHistoryRestoredListener">
+<span class="sig-name descname"><span class="pre">addHistoryRestoredListener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.addHistoryRestoredListener" title="Permalink to this definition"></a></dt>
+<dd><p>Register callback for <cite>HistoryRestored</cite> event</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> – callback function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.canUndo">
+<span class="sig-name descname"><span class="pre">canUndo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.canUndo" title="Permalink to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if Undo is available for current <cite>History Stack</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.canRedo">
+<span class="sig-name descname"><span class="pre">canRedo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.canRedo" title="Permalink to this definition"></a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if Redo is available for current <cite>History Stack</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.undo">
+<span class="sig-name descname"><span class="pre">undo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.undo" title="Permalink to this definition"></a></dt>
+<dd><p>Undo operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.redo">
+<span class="sig-name descname"><span class="pre">redo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.redo" title="Permalink to this definition"></a></dt>
+<dd><p>Redo operation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.restoreHistory">
+<span class="sig-name descname"><span class="pre">restoreHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.restoreHistory" title="Permalink to this definition"></a></dt>
+<dd><p>Restore <cite>History Stamp</cite> from <cite>History stack</cite>.</p>
+<p>Triggers:</p>
+<ul class="simple">
+<li><p><cite>History Modified</cite> event</p></li>
+<li><p><cite>History Restored</cite> event</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.storeHistory">
+<span class="sig-name descname"><span class="pre">storeHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setModified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.storeHistory" title="Permalink to this definition"></a></dt>
+<dd><p>Store History Stamp into History Stack</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desc</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>) – Description of current History Stamp</p></li>
+<li><p><strong>setModified</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code> marks <code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code> with <cite>has_been_modified</cite></p></li>
+</ul>
+</dd>
+</dl>
+<p>Triggers:</p>
+<ul class="simple">
+<li><p><cite>History Modified</cite></p></li>
+<li><p><cite>History Stored</cite></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.captureCurrentSelection">
+<span class="sig-name descname"><span class="pre">captureCurrentSelection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.captureCurrentSelection" title="Permalink to this definition"></a></dt>
+<dd><p>Create Dictionary with list of selected nodes and list of selected edges
+:return: <code class="docutils literal notranslate"><span class="pre">dict</span></code> <cite>nodes</cite> - list of selected nodes, <cite>edges</cite> - list of selected edges
+:rtype: <code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.createHistoryStamp">
+<span class="sig-name descname"><span class="pre">createHistoryStamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.createHistoryStamp" title="Permalink to this definition"></a></dt>
+<dd><p>Create History Stamp. Internally serialize whole scene and the current selection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>desc</strong> – Descriptive label for the History Stamp</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>History stamp serializing state of <cite>Scene</cite> and current selection</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneHistory.restoreHistoryStamp">
+<span class="sig-name descname"><span class="pre">restoreHistoryStamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history_stamp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneHistory.restoreHistoryStamp" title="Permalink to this definition"></a></dt>
+<dd><p>Restore History Stamp to current <cite>Scene</cite> with selection of items included</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>history_stamp</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – History Stamp to restore</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneClipboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">GUI.node_editor.</span></span><span class="sig-name descname"><span class="pre">SceneClipboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scene</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneClipboard" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class contains all the code for serialization/deserialization from Clipboard</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scene</strong> (<a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>) – Reference to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd>
+<dt class="field-even">Instance Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><p></p></dd>
+</dl>
+<ul class="simple">
+<li><p><strong>scene</strong> - reference to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneClipboard.serializeSelected">
+<span class="sig-name descname"><span class="pre">serializeSelected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delete</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneClipboard.serializeSelected" title="Permalink to this definition"></a></dt>
+<dd><p>Serializes selected items in the Scene into <code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>delete</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>) – True if you want to delete selected items after serialization. Useful for Cut operation</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Serialized data of current selection in NodeEditor <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="GUI.node_editor.SceneClipboard.deserializeFromClipboard">
+<span class="sig-name descname"><span class="pre">deserializeFromClipboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#GUI.node_editor.SceneClipboard.deserializeFromClipboard" title="Permalink to this definition"></a></dt>
+<dd><p>Deserializes data from Clipboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<code class="docutils literal notranslate"><span class="pre">dict</span></code>) – <code class="docutils literal notranslate"><span class="pre">dict</span></code> data for deserialization to the <a class="reference internal" href="#GUI.node_editor.Scene" title="GUI.node_editor.Scene"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scene</span></code></a>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GUI.node_creator.html" class="btn btn-neutral float-left" title="node_creator Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GUI.node_features.html" class="btn btn-neutral float-right" title="node_features Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Aldo Aldrich.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
