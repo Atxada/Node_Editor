@@ -1,5 +1,6 @@
 Node Editor 
 ==========================
+.. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Node%20Editor%20UI.PNG
 Description
 -----------
 The initial goal of this project is to create an auto-rig for Maya and get a better understanding of the Qt Framework to create a more complex GUI.
