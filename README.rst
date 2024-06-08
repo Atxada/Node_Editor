@@ -19,13 +19,16 @@ Features
 --------
 
 - full framework for creating customizable graphs, nodes, sockets, and edges
+.. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Example%20Node%20Editor.gif
 - support for undo/redo and serialization into files
 - support for implementing evaluation logic
 - scene mode to edit nodes (dragging edge, rerouting edge, cutting edge, etc.)
+.. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Mode%20Node%20Editor.gif
 - simple set of math nodes to use as a demo
 - support for saving custom executable scripts
 - simple maya context (zSpline) 
 - command line interpreters consisting of some handy scripts (? for help)
+.. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Command%20line%20Node%20Editor.gif
 - tested in Maya 2020.4 (python 2.7) and 2022 (python 3.7).
 
 Documentation
