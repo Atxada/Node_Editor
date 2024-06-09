@@ -17,7 +17,7 @@ test_requirements = [ ]
 setup(
     author="Aldo Aldrich",
     author_email='atxadaaldo17022@gmail.com',
-    python_requires='>=3.6',
+    python_requires='>=2.7',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
