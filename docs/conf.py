@@ -18,7 +18,6 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'recommonmark', #for enabling markdown
 ]   
 
 autodoc_member_order = "bysource"
