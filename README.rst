@@ -32,6 +32,29 @@ Features
 .. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Command%20line%20Node%20Editor.gif
 - tested in Maya 2020.4 (python 2.7) and 2022 (python 3.7).
 
+Testing
+------------
+
+::
+
+    1. Download files from repository
+    2. Unzip the files, rename folder ``Node_Editor-main`` to ``Node_Editor_main``
+    3. Place the folder inside maya script directory: 
+       `C:\Users<Username>\Documents\maya<version_number>\scripts`
+    4. Copy the following code to script editor
+    ::
+      from Node_Editor_main.ZCore import UI 
+
+      try:
+          zeno_rig_window.close()
+          zeno_rig_window.deleteLater()
+      except:
+          pass
+      
+      zeno_rig_window = UI.ZenoMainWindow()
+      zeno_rig_window.show()
+    5. Node Editor will show up and ready to use!
+
 Documentation
 -------------
 
