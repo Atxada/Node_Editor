@@ -3,6 +3,7 @@ Node Editor
 .. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Node%20Editor%20UI.PNG
 Description
 -----------
+
 The initial goal of this project is to create an auto-rig for Maya and get a better understanding of the Qt Framework to create a more complex GUI.
 
 I plan to continue developing this project's architecture by adding more functions and features as I develop my knowledge. 
@@ -35,25 +36,23 @@ Features
 Testing
 ------------
 
+1. Download files from the repository
+2. Unzip the files, rename the folder **Node_Editor-main** to **Node_Editor_main**
+3. Place the folder inside maya script directory:                 
+   ``C:\Users<Username>\Documents\maya<version_number>\scripts``
+4. Copy the following code to script editor
 ::
-
-    1. Download files from repository
-    2. Unzip the files, rename folder ``Node_Editor-main`` to ``Node_Editor_main``
-    3. Place the folder inside maya script directory: 
-       `C:\Users<Username>\Documents\maya<version_number>\scripts`
-    4. Copy the following code to script editor
-    ::
-      from Node_Editor_main.ZCore import UI 
-
-      try:
-          zeno_rig_window.close()
-          zeno_rig_window.deleteLater()
-      except:
-          pass
-      
-      zeno_rig_window = UI.ZenoMainWindow()
-      zeno_rig_window.show()
-    5. Node Editor will show up and ready to use!
+    from Node_Editor_main.ZCore import UI 
+    
+    try:
+        zeno_rig_window.close()
+        zeno_rig_window.deleteLater()
+    except:
+        pass
+    
+    zeno_rig_window = UI.ZenoMainWindow()
+    zeno_rig_window.show()
+5. Node Editor will show up and ready to use!
 
 Documentation
 -------------
