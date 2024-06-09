@@ -16,7 +16,6 @@ release = '0.1.0'
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx_rtd_theme',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'recommonmark', #for enabling markdown
