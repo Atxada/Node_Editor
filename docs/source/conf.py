@@ -33,11 +33,32 @@ extensions = [
     'recommonmark', #for enabling markdown
 ]   
 
+autosectionlabel_prefix_document = True
+
 autodoc_member_order = "bysource"
 autoclass_content = "both"    # force sphinx to show parameter of constructor under each class
 
+from recommonmark.transform import AutoStructify
+github_doc_root = 'https://github.com/rtfd/recommonmark/tree/master/doc/'
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            # 'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
+    app.add_transform(AutoStructify)
+
 templates_path = ['_templates']
+
+source_suffix = ['.rst', '.md']
+
+# The master toctree document.
+master_doc = 'index'
+
 exclude_patterns = []
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = None
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
