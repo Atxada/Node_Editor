@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-A module containing Serializable "Interface". act as an abstract class TESTING
+A module containing Serializable "Interface". act as an abstract class
 """
 
 class Serializable(object):
