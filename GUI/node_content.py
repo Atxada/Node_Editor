@@ -2,12 +2,6 @@
 """This module containing base class for Node's content graphical representation. It also contains example of overriden
 Text Widget which can pass to it's parent notification about currently being modified."""
 
-from collections import OrderedDict
-
-from PySide2 import QtCore,QtWidgets,QtGui
-
-from GUI.serializable import Serializable
-
 class NodeContentWidget(QtWidgets.QWidget, Serializable):
     """Base class: Node's graphics content. This class also provides layout for other widgets inside of :py:class:`~GUI.node_creator.NodeConfig` class"""
     def __init__(self, node, parent=None): # colon used to specify inside docs what type to pass ("string if u don't want to import/define")
