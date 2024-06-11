@@ -39,9 +39,6 @@ autoclass_content = "both"    # force sphinx to show parameter of constructor un
 templates_path = ['_templates']
 exclude_patterns = []
 
-# The master toctree document.
-master_doc = 'index'
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
