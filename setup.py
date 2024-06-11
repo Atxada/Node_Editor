@@ -10,9 +10,14 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+with open('requirements.txt') as requirements_file:
+    requirements = requirements_file.read()
+
+setup_requirements = [ ]
 
 test_requirements = [ ]
+
+import GUI
 
 setup(
     author="Aldo Aldrich",
@@ -28,12 +33,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
-    entry_points={
-        'console_scripts': [
-            'template=template.cli:main',
-        ],
-    },
+    description="Python Node Editor using Pyside2",
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
@@ -42,9 +42,10 @@ setup(
     name='node_editor',
     #packages=find_packages(include=['template', 'template.*']),
     packages=find_packages(include=['GUI*'], exclude=['ZCore*']),
+    setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/Atxada/template',
-    version='0.1.0',
+    url='https://github.com/Atxada/Node_Editor',
+    version='0.9.0',
     zip_safe=False,
 )
