@@ -33,6 +33,11 @@ Features
 .. image:: https://github.com/Atxada/Node_Editor/blob/main/docs/Command%20line%20Node%20Editor.gif
 - tested in Maya 2020.4 (python 2.7) and 2022 (python 3.7).
 
+Documentation
+-------------
+
+- `Documentation <https://zeno-node-editor.readthedocs.io/en/latest/>`_
+
 Testing
 ------------
 
@@ -53,8 +58,3 @@ Testing
     zeno_rig_window = UI.ZenoMainWindow()
     zeno_rig_window.show()
 5. Node Editor will show up and ready to use!
-
-Documentation
--------------
-
-- `Documentation <https://pyqt-node-editor.readthedocs.io/en/latest/>`_
