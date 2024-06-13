@@ -74,11 +74,11 @@ class ZenoMainWindow(node_editor.NodeEditorWindow):
         return "%sWorkspaceControl"%cls.UI_NAME
 
     def __init__(self):
-        super(ZenoMainWindow, self).__init__()
+        super(ZenoMainWindow, self).__init__(maya_main_window())
         ToolsSystem.zeno_window = self   # set window instance to tool system
         self.setObjectName(self.__class__.UI_NAME)
         self.setWindowIcon(QtGui.QIcon(ToolsSystem.get_path("Sources","icons","zeno_key_rig.png")))
-        self.create_workspace_control() # toggle on/off to revert to undockable or dockable via workspace ctrl
+        # self.create_workspace_control() # toggle on/off to revert to undockable or dockable via workspace ctrl
 
     def initUI(self):
         self.author = 'Atxada'
@@ -817,10 +817,11 @@ class DebugLabel(QtWidgets.QLabel):
         self.setMouseTracking(True) # this enable mouseMoveEvent called without requiring any key to be pressed
 
 if __name__ == "__main__":
+  '''
     workspace_control_name = ZenoMainWindow.get_workspace_control_name()
     if cmds.window(workspace_control_name, exists=True):
         cmds.deleteUI(workspace_control_name)   # only for floating window, if docked might not detected (create possible error like additional ui on same window)
-    '''
+    
     try:
         print ("try")
         zeno_rig_window.setParent(None) # unparent from workspace control
