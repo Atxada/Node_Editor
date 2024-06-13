@@ -817,7 +817,7 @@ class DebugLabel(QtWidgets.QLabel):
         self.setMouseTracking(True) # this enable mouseMoveEvent called without requiring any key to be pressed
 
 if __name__ == "__main__":
-  '''
+    '''
     workspace_control_name = ZenoMainWindow.get_workspace_control_name()
     if cmds.window(workspace_control_name, exists=True):
         cmds.deleteUI(workspace_control_name)   # only for floating window, if docked might not detected (create possible error like additional ui on same window)
