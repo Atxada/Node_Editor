@@ -7,7 +7,6 @@
 #---------------------------------------- Temp Main -----------------------------------------------
 import sys
 import maya.cmds as cmds 
-sys.path.insert(0, "C:/Users/atxad/Desktop/Maya Scripts Draft/1st Album EPILOGUE/Face Tools/ZenoRig")
 sys.dont_write_bytecode = True  # prevent by bytecode python being generated (.pyc)
 
 print ("ZCore package initialized"),
